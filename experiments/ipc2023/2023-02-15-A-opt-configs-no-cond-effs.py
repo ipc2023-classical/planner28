@@ -41,7 +41,9 @@ CONFIGS = [
     ("h2", ["--search", "astar(hm(m=2))"]),
     ("hmax", ["--search", "astar(hmax())"]),
     # PDB heuristics
-    # TODO: add PDB CEGAR configs.
+    ("can-cegar-10s", ["--search", "astar(cpdbs(multiple_cegar(max_pdb_size=1000000,max_collection_size=10000000,pattern_generation_max_time=infinity,total_max_time=10,stagnation_limit=2,blacklist_trigger_percentage=0.75,enable_blacklist_on_stagnation=true,use_wildcard_plans=true)))"]),
+    ("can-cegar-60s", ["--search", "astar(cpdbs(multiple_cegar(max_pdb_size=1000000,max_collection_size=10000000,pattern_generation_max_time=infinity,total_max_time=60,stagnation_limit=12,blacklist_trigger_percentage=0.75,enable_blacklist_on_stagnation=true,use_wildcard_plans=true)))"]),
+    ("can-cegar-300s", ["--search", "astar(cpdbs(multiple_cegar(max_pdb_size=1000000,max_collection_size=10000000,pattern_generation_max_time=infinity,total_max_time=300,stagnation_limit=20,blacklist_trigger_percentage=0.75,enable_blacklist_on_stagnation=true,use_wildcard_plans=true)))"]),
     ("ipdb-10s", ["--search", "astar(ipdb(max_time=10))"]),
     ("ipdb-60s", ["--search", "astar(ipdb(max_time=60))"]),
     ("ipdb-300s", ["--search", "astar(ipdb(max_time=300))"]),
@@ -49,8 +51,13 @@ CONFIGS = [
     ("can-sys2", ["--search", "astar(cpdbs(patterns=systematic(2)))"]),
     ("can-sys3", ["--search", "astar(cpdbs(patterns=systematic(3)))"]),
     ("lmcut", ["--search", "astar(lmcut())"]),
-    # TODO: fix M&S config, add others?
-    # ("mas", ["--search", "astar(merge_and_shrink(shrink_strategy=shrink_bisimulation(greedy=false), merge_strategy=merge_sccs(order_of_sccs=topological, merge_selector=score_based_filtering(scoring_functions=[goal_relevance, dfp, total_order])), label_reduction=exact(before_shrinking=true, before_merging=false), max_states=50k, threshold_before_merge=1))"]),
+    # M&S heuristics
+    ("mas-ssc-dfp-10s", ["--search", "astar(merge_and_shrink(shrink_strategy=shrink_bisimulation(greedy=false), merge_strategy=merge_sccs(order_of_sccs=topological, merge_selector=score_based_filtering(scoring_functions=[goal_relevance(), dfp(), total_order(atomic_ts_order=reverse_level,product_ts_order=new_to_old,atomic_before_product=false)])), label_reduction=exact(before_shrinking=true, before_merging=false), max_states=50k, threshold_before_merge=1, main_loop_max_time=10))"]),
+    ("mas-ssc-sbmiasm-10s", ["--search", "astar(merge_and_shrink(shrink_strategy=shrink_bisimulation(greedy=false), merge_strategy=merge_sccs(order_of_sccs=topological, merge_selector=score_based_filtering(scoring_functions=[sf_miasm(shrink_strategy=shrink_bisimulation(greedy=false),max_states=50000,threshold_before_merge=1),total_order(atomic_ts_order=reverse_level,product_ts_order=new_to_old,atomic_before_product=false)])), label_reduction=exact(before_shrinking=true, before_merging=false), max_states=50k, threshold_before_merge=1, main_loop_max_time=10))"]),
+    ("mas-ssc-dfp-60s", ["--search", "astar(merge_and_shrink(shrink_strategy=shrink_bisimulation(greedy=false), merge_strategy=merge_sccs(order_of_sccs=topological, merge_selector=score_based_filtering(scoring_functions=[goal_relevance(), dfp(), total_order(atomic_ts_order=reverse_level,product_ts_order=new_to_old,atomic_before_product=false)])), label_reduction=exact(before_shrinking=true, before_merging=false), max_states=50k, threshold_before_merge=1, main_loop_max_time=60))"]),
+    ("mas-ssc-sbmiasm-60s", ["--search", "astar(merge_and_shrink(shrink_strategy=shrink_bisimulation(greedy=false), merge_strategy=merge_sccs(order_of_sccs=topological, merge_selector=score_based_filtering(scoring_functions=[sf_miasm(shrink_strategy=shrink_bisimulation(greedy=false),max_states=50000,threshold_before_merge=1),total_order(atomic_ts_order=reverse_level,product_ts_order=new_to_old,atomic_before_product=false)])), label_reduction=exact(before_shrinking=true, before_merging=false), max_states=50k, threshold_before_merge=1, main_loop_max_time=60))"]),
+    ("mas-ssc-dfp-300s", ["--search", "astar(merge_and_shrink(shrink_strategy=shrink_bisimulation(greedy=false), merge_strategy=merge_sccs(order_of_sccs=topological, merge_selector=score_based_filtering(scoring_functions=[goal_relevance(), dfp(), total_order(atomic_ts_order=reverse_level,product_ts_order=new_to_old,atomic_before_product=false)])), label_reduction=exact(before_shrinking=true, before_merging=false), max_states=50k, threshold_before_merge=1, main_loop_max_time=300))"]),
+    ("mas-ssc-sbmiasm-300s", ["--search", "astar(merge_and_shrink(shrink_strategy=shrink_bisimulation(greedy=false), merge_strategy=merge_sccs(order_of_sccs=topological, merge_selector=score_based_filtering(scoring_functions=[sf_miasm(shrink_strategy=shrink_bisimulation(greedy=false),max_states=50000,threshold_before_merge=1),total_order(atomic_ts_order=reverse_level,product_ts_order=new_to_old,atomic_before_product=false)])), label_reduction=exact(before_shrinking=true, before_merging=false), max_states=50k, threshold_before_merge=1, main_loop_max_time=300))"]),
     # Operator-counting heuristics
     ("pho-sys1", ["--search", "astar(operatorcounting([pho_constraints(patterns=systematic(1))]))"]),
     ("pho-sys2", ["--search", "astar(operatorcounting([pho_constraints(patterns=systematic(2))]))"]),
