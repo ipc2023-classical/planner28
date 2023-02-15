@@ -22,7 +22,8 @@ REPO = project.get_repo_base()
 BENCHMARKS_DIR = os.environ["DOWNWARD_BENCHMARKS"]
 SCP_LOGIN = "infai"
 REMOTE_REPOS_DIR = "/infai/myuser/repos"
-SUITE = ["depot:p01.pddl", "grid:prob01.pddl", "gripper:prob01.pddl"]
+#SUITE = ["depot:p01.pddl", "grid:prob01.pddl", "gripper:prob01.pddl"]
+SUITE = ["miconic:s1-0.pddl"]
 try:
     REVISION_CACHE = Path(os.environ["DOWNWARD_REVISION_CACHE"])
 except KeyError:
@@ -34,15 +35,45 @@ else:
     ENV = project.LocalEnvironment(processes=2)
 
 CONFIGS = [
+    ("bjolp", ["--search", "let(lmc, lmcount(lm_merged([lm_rhw(), lm_hm(m=1)]), admissible=true), astar(lmc,lazy_evaluator=lmc))"]),
+    ("blind", ["--search", "astar(blind())"]),
     ("cartesian-cegar", ["--search", "astar(cegar(subtasks=[landmarks(order=random), goals(order=random)], max_states=infinity, max_transitions=1M, max_time=infinity))"]),
+    ("h2", ["--search", "astar(hm(m=2))"]),
+    ("hmax", ["--search", "astar(hmax())"]),
+    # PDB heuristics
+    # TODO: add PDB CEGAR configs.
+    ("ipdb-10s", ["--search", "astar(ipdb(max_time=10))"]),
+    ("ipdb-60s", ["--search", "astar(ipdb(max_time=60))"]),
+    ("ipdb-300s", ["--search", "astar(ipdb(max_time=300))"]),
+    ("can-sys1", ["--search", "astar(cpdbs(patterns=systematic(1)))"]),
+    ("can-sys2", ["--search", "astar(cpdbs(patterns=systematic(2)))"]),
+    ("can-sys3", ["--search", "astar(cpdbs(patterns=systematic(3)))"]),
+    ("lmcut", ["--search", "astar(lmcut())"]),
+    # TODO: fix M&S config, add others?
+    # ("mas", ["--search", "astar(merge_and_shrink(shrink_strategy=shrink_bisimulation(greedy=false), merge_strategy=merge_sccs(order_of_sccs=topological, merge_selector=score_based_filtering(scoring_functions=[goal_relevance, dfp, total_order])), label_reduction=exact(before_shrinking=true, before_merging=false), max_states=50k, threshold_before_merge=1))"]),
+    # Operator-counting heuristics
+    ("pho-sys1", ["--search", "astar(operatorcounting([pho_constraints(patterns=systematic(1))]))"]),
+    ("pho-sys2", ["--search", "astar(operatorcounting([pho_constraints(patterns=systematic(2))]))"]),
+    ("pho-sys3", ["--search", "astar(operatorcounting([pho_constraints(patterns=systematic(3))]))"]),
+    ("hplus-relaxed", ["--search", "astar(operatorcounting([delete_relaxation_constraints(use_time_vars=false, use_integer_vars=false)]))"]),
+    ("hplus", ["--search", "astar(operatorcounting([delete_relaxation_constraints(use_time_vars=true, use_integer_vars=true)]))"]),
+    ("seq", ["--search", "astar(operatorcounting([state_equation_constraints()]))"]),
+    ("seq-lmcut", ["--search", "astar(operatorcounting([state_equation_constraints(), lmcut_constraints()]))"]),
+    ("seq-lmcut-hplus-relaxed", ["--search", "astar(operatorcounting([state_equation_constraints(), lmcut_constraints(), delete_relaxation_constraints(use_time_vars=false, use_integer_vars=false)]))"]),
+    # Potential heuristics
+    ("potential-initial-state", ["--search", "astar(initial_state_potential())"]),
+    ("potential-all-states", ["--search", "astar(all_states_potential())"]),
+    ("potential-diverse", ["--search", "astar(diverse_potentials())"]),
+
 ]
 BUILD_OPTIONS = []
 DRIVER_OPTIONS = [
     "--validate",
-    "--overall-time-limit",
-    "10m",
-    "--overall-memory-limit",
-    "8G",
+    # Higher time limits probably don't make sense since we're building sequential portfolios.
+    # Maybe go higher for the cond-eff experiment, though, since there are fewer configurations.
+    "--overall-time-limit", "10m",
+    # Same memory limit as in competition.
+    "--overall-memory-limit", "8G",
 ]
 # Pairs of revision identifier and revision nick.
 REVS = [
