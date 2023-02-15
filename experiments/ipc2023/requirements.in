@@ -1,2 +1,2 @@
 lab==7.2
-labreports @ git+ssh://git@github.com/jendrikseipp/labreports.git
+labreports @ git+https://github.com/jendrikseipp/labreports.git
