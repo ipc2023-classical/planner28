@@ -13,8 +13,6 @@ from downward.experiment import (
 )
 from lab.experiment import Experiment, get_default_data_dir
 
-from labreports import PerTaskComparison
-
 import project
 
 
@@ -30,14 +28,19 @@ except KeyError:
     REVISION_CACHE = Path(get_default_data_dir()) / "revision-cache"
 if project.REMOTE:
     ENV = project.BaselSlurmEnvironment(email="my.name@myhost.ch", memory_per_cpu="9G")
-    SUITE = project.SUITE_OPTIMAL_STRIPS
+    SUITE = project.SUITE_STRIPS
 else:
     ENV = project.LocalEnvironment(processes=2)
 
 CONFIGS = [
     ("bjolp", ["--search", "let(lmc, lmcount(lm_merged([lm_rhw(), lm_hm(m=1)]), admissible=true), astar(lmc,lazy_evaluator=lmc))"]),
     ("blind", ["--search", "astar(blind())"]),
-    ("cartesian-cegar", ["--search", "astar(cegar(subtasks=[landmarks(order=random), goals(order=random)], max_states=infinity, max_transitions=1M, max_time=infinity))"]),
+    ("cartesian-cegar-landmarks-goals-10s", ["--search", "astar(cegar(subtasks=[landmarks(order=random), goals(order=random)], max_states=infinity, max_transitions=infinity, max_time=10))"]),
+    ("cartesian-cegar-landmarks-goals-60s", ["--search", "astar(cegar(subtasks=[landmarks(order=random), goals(order=random)], max_states=infinity, max_transitions=infinity, max_time=60))"]),
+    ("cartesian-cegar-landmarks-goals-300s", ["--search", "astar(cegar(subtasks=[landmarks(order=random), goals(order=random)], max_states=infinity, max_transitions=infinity, max_time=300))"]),
+    ("cartesian-cegar-landmarks-goals-1M", ["--search", "astar(cegar(subtasks=[landmarks(order=random), goals(order=random)], max_states=infinity, max_transitions=1M, max_time=infinity))"]),
+    ("cartesian-cegar-landmarks-1M", ["--search", "astar(cegar(subtasks=[landmarks(order=random)], max_states=infinity, max_transitions=1M, max_time=infinity))"]),
+    ("cartesian-cegar-goals-1M", ["--search", "astar(cegar(subtasks=[goals(order=random)], max_states=infinity, max_transitions=1M, max_time=infinity))"]),
     ("h2", ["--search", "astar(hm(m=2))"]),
     ("hmax", ["--search", "astar(hmax())"]),
     # PDB heuristics
