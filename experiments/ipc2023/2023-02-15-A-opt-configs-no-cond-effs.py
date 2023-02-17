@@ -92,14 +92,13 @@ REVS = [
 ATTRIBUTES = [
     "error",
     "run_dir",
-    "search_start_time",
-    "search_start_memory",
-    "score_total_time",
+    #"search_start_time",
+    #"search_start_memory",
+    #"score_total_time",
     "total_time",
     "coverage",
-    "expansions",
-    "expansions_until_last_jump",
-    "memory",
+    #"expansions_until_last_jump",
+    #"memory",
 ]
 
 exp = Experiment(environment=ENV)
@@ -129,10 +128,10 @@ for rev, rev_nick in REVS:
             exp.add_run(run)
 
 exp.add_parser(project.FastDownwardExperiment.EXITCODE_PARSER)
-exp.add_parser(project.FastDownwardExperiment.TRANSLATOR_PARSER)
+#exp.add_parser(project.FastDownwardExperiment.TRANSLATOR_PARSER)
 exp.add_parser(project.FastDownwardExperiment.SINGLE_SEARCH_PARSER)
 exp.add_parser(project.DIR / "parser.py")
-exp.add_parser(project.FastDownwardExperiment.PLANNER_PARSER)
+#exp.add_parser(project.FastDownwardExperiment.PLANNER_PARSER)
 
 exp.add_step("build", exp.build)
 exp.add_step("start", exp.start_runs)
