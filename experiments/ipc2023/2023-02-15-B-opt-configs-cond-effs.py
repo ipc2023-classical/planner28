@@ -52,9 +52,8 @@ CONFIGS = [
 BUILD_OPTIONS = []
 DRIVER_OPTIONS = [
     "--validate",
-    # Higher time limits probably don't make sense since we're building sequential portfolios.
-    # Maybe go higher for the cond-eff experiment, though, since there are fewer configurations.
-    "--overall-time-limit", "10m",
+    # For experiments with fewer configs, use a lower time limit since we're building sequential portfolios.
+    "--overall-time-limit", "30m",
     # Same memory limit as in competition.
     "--overall-memory-limit", "8G",
 ]
