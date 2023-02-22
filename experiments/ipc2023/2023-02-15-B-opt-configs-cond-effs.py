@@ -29,7 +29,7 @@ try:
 except KeyError:
     REVISION_CACHE = Path(get_default_data_dir()) / "revision-cache"
 if project.REMOTE:
-    ENV = project.BaselSlurmEnvironment(email="my.name@myhost.ch", memory_per_cpu="9G")
+    ENV = project.BaselSlurmEnvironment(email="clemens.buechner@unibas.ch", memory_per_cpu="9G", partition="infai_2")
     SUITE = project.SUITE_ADL
 else:
     ENV = project.LocalEnvironment(processes=2)

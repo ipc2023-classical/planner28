@@ -17,17 +17,17 @@ import project
 
 
 REPO = project.get_repo_base()
-BENCHMARKS_DIR = os.environ["DOWNWARD_BENCHMARKS"]
+BENCHMARKS_DIR = "./../../benchmarks/"
 SCP_LOGIN = "infai"
 REMOTE_REPOS_DIR = "/infai/myuser/repos"
 #SUITE = ["depot:p01.pddl", "grid:prob01.pddl", "gripper:prob01.pddl"]
-SUITE = ["miconic:s1-0.pddl"]
+SUITE = ["miconic-strips:0-p01.pddl"]
 try:
     REVISION_CACHE = Path(os.environ["DOWNWARD_REVISION_CACHE"])
 except KeyError:
     REVISION_CACHE = Path(get_default_data_dir()) / "revision-cache"
 if project.REMOTE:
-    ENV = project.BaselSlurmEnvironment(email="my.name@myhost.ch", memory_per_cpu="9G")
+    ENV = project.BaselSlurmEnvironment(email="clemens.buechner@unibas.ch", memory_per_cpu="9G", partition="infai_2")
     SUITE = project.SUITE_STRIPS
 else:
     ENV = project.LocalEnvironment(processes=2)
@@ -144,7 +144,6 @@ if not project.REMOTE:
 project.add_absolute_report(
     exp,
     attributes=ATTRIBUTES,
-    filter=[project.group_domains],
 )
 
 exp.run_steps()
