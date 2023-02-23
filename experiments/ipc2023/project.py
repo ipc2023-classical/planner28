@@ -3,6 +3,7 @@ import platform
 import re
 import subprocess
 import sys
+import traceback
 
 from downward.experiment import FastDownwardExperiment
 from downward.reports.absolute import AbsoluteReport
@@ -61,125 +62,39 @@ SUITE_STRIPS = ['agricola-strips', 'airport-strips', 'barman-strips', 'blockswor
 SUITE_ADL = ['airport-adl', 'assembly-adl', 'briefcaseworld-adl', 'caldera-adl', 'caldera-split-adl', 'cavediving-adl', 'citycar-adl', 'flashfill-adl', 'fsc-blocks-strips', 'fsc-grid-a-strips', 'fsc-grid-r-strips', 'fsc-hall-strips', 'fsc-visualmarker-strips', 'gedp-ds2ndp-adl', 'maintenance-adl', 'miconic-fulladl-adl', 'miconic-simpleadl-adl', 'nurikabe-adl', 'openstacks-adl', 'optical-telegraphs-adl', 'pathways-noneg-adl', 'philosophers-adl', 'psr-large-adl', 'psr-middle-adl', 'schedule-adl', 'settlers-adl', 't0-adder-adl', 't0-coins-adl', 't0-comm-adl', 't0-grid-dispose-adl', 't0-grid-push-adl', 't0-grid-trash-adl', 't0-sortnet-adl', 't0-sortnet-alt-adl', 't0-uts-adl', 'trucks-adl']
 
 SUITE_STRIPS_AND_ADL = sorted(SUITE_STRIPS + SUITE_ADL)
-
-DOMAIN_GROUPS = {
-    "airport": ["airport"],
-    "assembly": ["assembly"],
-    "barman": [
-        "barman", "barman-opt11-strips", "barman-opt14-strips",
-        "barman-sat11-strips", "barman-sat14-strips"],
-    "blocksworld": ["blocks", "blocksworld"],
-    "cavediving": ["cavediving-14-adl"],
-    "childsnack": ["childsnack-opt14-strips", "childsnack-sat14-strips"],
-    "citycar": ["citycar-opt14-adl", "citycar-sat14-adl"],
-    "depots": ["depot", "depots"],
-    "driverlog": ["driverlog"],
-    "elevators": [
-        "elevators-opt08-strips", "elevators-opt11-strips",
-        "elevators-sat08-strips", "elevators-sat11-strips"],
-    "floortile": [
-        "floortile-opt11-strips", "floortile-opt14-strips",
-        "floortile-sat11-strips", "floortile-sat14-strips"],
-    "freecell": ["freecell"],
-    "ged": ["ged-opt14-strips", "ged-sat14-strips"],
-    "grid": ["grid"],
-    "gripper": ["gripper"],
-    "hiking": ["hiking-opt14-strips", "hiking-sat14-strips"],
-    "logistics": ["logistics98", "logistics00"],
-    "maintenance": ["maintenance-opt14-adl", "maintenance-sat14-adl"],
-    "miconic": ["miconic", "miconic-strips"],
-    "miconic-fulladl": ["miconic-fulladl"],
-    "miconic-simpleadl": ["miconic-simpleadl"],
-    "movie": ["movie"],
-    "mprime": ["mprime"],
-    "mystery": ["mystery"],
-    "nomystery": ["nomystery-opt11-strips", "nomystery-sat11-strips"],
-    "openstacks": [
-        "openstacks", "openstacks-strips", "openstacks-opt08-strips",
-        "openstacks-opt11-strips", "openstacks-opt14-strips",
-        "openstacks-sat08-adl", "openstacks-sat08-strips",
-        "openstacks-sat11-strips", "openstacks-sat14-strips",
-        "openstacks-opt08-adl", "openstacks-sat08-adl"],
-    "optical-telegraphs": ["optical-telegraphs"],
-    "parcprinter": [
-        "parcprinter-08-strips", "parcprinter-opt11-strips", "parcprinter-sat11-strips"],
-    "parking": [
-        "parking-opt11-strips", "parking-opt14-strips",
-        "parking-sat11-strips", "parking-sat14-strips"],
-    "pathways": ["pathways"],
-    "pathways-noneg": ["pathways-noneg"],
-    "pegsol": ["pegsol-08-strips", "pegsol-opt11-strips", "pegsol-sat11-strips"],
-    "philosophers": ["philosophers"],
-    "pipes-nt": ["pipesworld-notankage"],
-    "pipes-t": ["pipesworld-tankage"],
-    "psr": ["psr-middle", "psr-large", "psr-small"],
-    "rovers": ["rover", "rovers"],
-    "satellite": ["satellite"],
-    "scanalyzer": [
-        "scanalyzer-08-strips", "scanalyzer-opt11-strips", "scanalyzer-sat11-strips"],
-    "schedule": ["schedule"],
-    "sokoban": [
-        "sokoban-opt08-strips", "sokoban-opt11-strips",
-        "sokoban-sat08-strips", "sokoban-sat11-strips"],
-    "storage": ["storage"],
-    "tetris": ["tetris-opt14-strips", "tetris-sat14-strips"],
-    "thoughtful": ["thoughtful-sat14-strips"],
-    "tidybot": [
-        "tidybot-opt11-strips", "tidybot-opt14-strips",
-        "tidybot-sat11-strips", "tidybot-sat14-strips"],
-    "tpp": ["tpp"],
-    "transport": [
-        "transport-opt08-strips", "transport-opt11-strips", "transport-opt14-strips",
-        "transport-sat08-strips", "transport-sat11-strips", "transport-sat14-strips"],
-    "trucks": ["trucks", "trucks-strips"],
-    "visitall": [
-        "visitall-opt11-strips", "visitall-opt14-strips",
-        "visitall-sat11-strips", "visitall-sat14-strips"],
-    "woodworking": [
-        "woodworking-opt08-strips", "woodworking-opt11-strips",
-        "woodworking-sat08-strips", "woodworking-sat11-strips"],
-    "zenotravel": ["zenotravel"],
-    # IPC 2018:
-    "agricola": ["agricola", "agricola-opt18-strips", "agricola-sat18-strips"],
-    "caldera": ["caldera-opt18-adl", "caldera-sat18-adl"],
-    "caldera-split": ["caldera-split-opt18-adl", "caldera-split-sat18-adl"],
-    "data-network": [
-        "data-network", "data-network-opt18-strips", "data-network-sat18-strips"],
-    "flashfill": ["flashfill-sat18-adl"],
-    "nurikabe": ["nurikabe-opt18-adl", "nurikabe-sat18-adl"],
-    "organic-split": [
-        "organic-synthesis-split", "organic-synthesis-split-opt18-strips",
-        "organic-synthesis-split-sat18-strips"],
-    "organic" : [
-        "organic-synthesis", "organic-synthesis-opt18-strips",
-        "organic-synthesis-sat18-strips"],
-    "petri-net": [
-        "petri-net-alignment", "petri-net-alignment-opt18-strips",
-        "petri-net-alignment-sat18-strips"],
-    "settlers": ["settlers-opt18-adl", "settlers-sat18-adl"],
-    "snake": ["snake", "snake-opt18-strips", "snake-sat18-strips"],
-    "spider": ["spider", "spider-opt18-strips", "spider-sat18-strips"],
-    "termes": ["termes", "termes-opt18-strips", "termes-sat18-strips"],
-}
 # fmt: on
 
+def get_portfolio_attributes(portfolio):
+    attributes = {}
+    with open(portfolio) as portfolio_file:
+        content = portfolio_file.read()
+        try:
+            exec(content, attributes)
+        except Exception:
+            traceback.print_exc()
+            raise ImportError(
+                "The portfolio %s could not be loaded. Maybe it still "
+                "uses the old portfolio syntax? See the FDSS portfolios "
+                "for examples using the new syntax." % portfolio)
+    if "CONFIGS" not in attributes:
+        raise ValueError("portfolios must define CONFIGS")
+    if "OPTIMAL" not in attributes:
+        raise ValueError("portfolios must define OPTIMAL")
+    return attributes
 
-DOMAIN_RENAMINGS = {}
-for group_name, domains in DOMAIN_GROUPS.items():
-    for domain in domains:
-        DOMAIN_RENAMINGS[domain] = group_name
-for group_name in DOMAIN_GROUPS:
-    DOMAIN_RENAMINGS[group_name] = group_name
 
-
-def group_domains(run):
-    print("domain renaming/grouping not implemented")
-    sys.exit()
-    old_domain = run["domain"]
-    run["domain"] = DOMAIN_RENAMINGS[old_domain]
-    run["problem"] = old_domain + "-" + run["problem"]
-    run["id"][2] = run["problem"]
-    return run
+def prepare_config(config, replacements=None):
+    replacements = [
+        ("H_COST_TRANSFORM", "adapt_costs(one)"),
+        ("S_COST_TYPE", "one"),
+        ("BOUND", "infinity"),
+        ("bound=infinity", "bound=infinity, verbosity=silent"),
+    ] + (replacements or [])
+    for index, part in enumerate(config):
+        for before, after in replacements:
+            part = part.replace(before, after)
+        config[index] = part
+    return config
 
 
 def get_repo_base() -> Path:
