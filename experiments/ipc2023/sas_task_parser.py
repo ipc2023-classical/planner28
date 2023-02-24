@@ -1,18 +1,23 @@
 #! /usr/bin/env python
 
 import logging
+import os
 import re
 
 from lab.parser import Parser
 
 
 def has_axioms(content, props):
+    if not os.path.exists("output.sas"):
+        return
     with open("output.sas", "r") as f:
         content = f.read()
     props["has_axioms"] = content.find("begin_rule")> -1
 
 
 def has_conditional_effects(content, props):
+    if not os.path.exists("output.sas"):
+        return
     with open("output.sas", "r") as f:
         content = f.read()
     operators = re.findall(r"begin_operator(.*?)end_operator", content, re.DOTALL)
