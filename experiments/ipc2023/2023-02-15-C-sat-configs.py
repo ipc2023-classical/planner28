@@ -26,7 +26,7 @@ try:
 except KeyError:
     REVISION_CACHE = Path(get_default_data_dir()) / "revision-cache"
 if project.REMOTE:
-    ENV = project.BaselSlurmEnvironment(email="clemens.buechner@unibas.ch", memory_per_cpu="9G", partition="infai_2")
+    ENV = project.BaselSlurmEnvironment(email="augusto.blaascorrea@unibas.ch", memory_per_cpu="9G", partition="infai_2")
     SUITE = project.SUITE_ALL
 else:
     ENV = project.LocalEnvironment(processes=2)
@@ -41,7 +41,101 @@ def get_configs_from_portfolio(portfolio_nick, portfolio_path):
 
 CONFIGS = (
     get_configs_from_portfolio("fdss-2014", REPO / "driver" / "portfolios" / "seq_sat_fdss_2014.py") +
-    get_configs_from_portfolio("fdss-2018", REPO / "driver" / "portfolios" / "seq_sat_fdss_2018.py")
+    get_configs_from_portfolio("fdss-2018", REPO / "driver" / "portfolios" / "seq_sat_fdss_2018.py") +
+    [
+    # Epsilon greedy
+    ## Single evaluator
+    ("eager_hff-epsilon-greedy", ["--search",
+          "let(hff, ff(transform=adapt_costs(one)),"
+          "eager(alt([epsilon_greedy(hff)]),"
+          "cost_type=one,reopen_closed=false))"]),
+    ("eager_hcea-epsilon-greedy", ["--search",
+          "let(hcea, cea(transform=adapt_costs(one)),"
+          "eager(alt([epsilon_greedy(hcea)]),"
+          "cost_type=one,reopen_closed=false))"]),
+    ("eager_hcg-epsilon-greedy", ["--search",
+          "let(hcg, cg(transform=adapt_costs(one)),"
+          "eager(alt([epsilon_greedy(hcg)]),"
+          "cost_type=one,reopen_closed=false))"]),
+    ("lazy_hff-epsilon-greedy", ["--search",
+          "let(hff, ff(transform=adapt_costs(one)),"
+          "lazy(alt([epsilon_greedy(hff)]),"
+          "cost_type=one,reopen_closed=false,randomize_successors=true))"]),
+    ("lazy_hcea-epsilon-greedy", ["--search",
+          "let(hcea, cea(transform=adapt_costs(one)),"
+          "lazy(alt([epsilon_greedy(hcea)]),"
+          "cost_type=one,reopen_closed=false,randomize_successors=true))"]),
+    ("lazy_hcg-epsilon-greedy", ["--search",
+          "let(hcg, cg(transform=adapt_costs(one)),"
+          "lazy(alt([epsilon_greedy(hcg)]),"
+          "cost_type=one,reopen_closed=false,randomize_successors=true))"]),
+
+    ## Evaluators combined with landmarks with reasonable orders
+    ("lazy_hff-epsilon-greedy_hlm-with-reasonable-orders", ["--search",
+          "let(hlm, lmcount(lm_reasonable_orders_hps(lm_rhw()),transform=adapt_costs(one)),"
+          "let(hff, ff(transform=adapt_costs(one)),"
+          "lazy(alt([epsilon_greedy(hff),single(hlm)]),"
+          "cost_type=one,reopen_closed=false,randomize_successors=true)))"]),
+    ("lazy_hff_hlm-epsilon_greedy-with-reasonable-orders", ["--search",
+          "let(hlm, lmcount(lm_reasonable_orders_hps(lm_rhw()),transform=adapt_costs(one)),"
+          "let(hff, ff(transform=adapt_costs(one)),"
+          "lazy(alt([single(hff),epsilon_greedy(hlm)]),"
+          "cost_type=one,reopen_closed=false,randomize_successors=true)))"]),
+    ("lazy_hff-epsilon-greedy_hlm_pref_ops-with-reasonable-orders", ["--search",
+          "let(hlm, lmcount(lm_reasonable_orders_hps(lm_rhw()), pref=true, transform=adapt_costs(one)),"
+          "let(hff, ff(transform=adapt_costs(one)),"
+          "lazy(alt([epsilon_greedy(hff),single(hff,pref_only=true),single(hlm),single(hlm,pref_only=true)],boost=1000),"
+          "preferred=[hff,hlm],cost_type=one,reopen_closed=false,randomize_successors=true)))"]),
+    ("lazy_hff_hlm-epsilon-greedy_pref_ops-with-reasonable-orders", ["--search",
+          "let(hlm, lmcount(lm_reasonable_orders_hps(lm_rhw()), pref=true, transform=adapt_costs(one)),"
+          "let(hff, ff(transform=adapt_costs(one)),"
+          "lazy(alt([single(hff),single(hff,pref_only=true),epsilon_greedy(hlm),single(hlm,pref_only=true)],boost=1000),"
+          "preferred=[hff,hlm],cost_type=one,reopen_closed=false,randomize_successors=true)))"]),
+
+    ## Evaluators combined with landmarks without reasonable orders
+    ("lazy_hff-epsilon-greedy_hlm-no-reasonable-orders", ["--search",
+          "let(hlm, lmcount(lm_rhw(),transform=adapt_costs(one)),"
+          "let(hff, ff(transform=adapt_costs(one)),"
+          "lazy(alt([epsilon_greedy(hff),single(hlm)]),"
+          "cost_type=one,reopen_closed=false,randomize_successors=true)))"]),
+    ("lazy_hff_hlm-epsilon_greedy-no-reasonable-orders", ["--search",
+          "let(hlm, lmcount(lm_rhw(),transform=adapt_costs(one)),"
+          "let(hff, ff(transform=adapt_costs(one)),"
+          "lazy(alt([single(hff),epsilon_greedy(hlm)]),"
+          "cost_type=one,reopen_closed=false,randomize_successors=true)))"]),
+    ("lazy_hff-epsilon-greedy_hlm_pref_ops-no-reasonable-orders", ["--search",
+          "let(hlm, lmcount(lm_rhw(), pref=true, transform=adapt_costs(one)),"
+          "let(hff, ff(transform=adapt_costs(one)),"
+          "lazy(alt([epsilon_greedy(hff),single(hff,pref_only=true),single(hlm),single(hlm,pref_only=true)],boost=1000),"
+          "preferred=[hff,hlm],cost_type=one,reopen_closed=false,randomize_successors=true)))"]),
+    ("lazy_hff_hlm-epsilon-greedy_pref_ops-no-reasonable-orders", ["--search",
+          "let(hlm, lmcount(lm_rhw(), pref=true, transform=adapt_costs(one)),"
+          "let(hff, ff(transform=adapt_costs(one)),"
+          "lazy(alt([single(hff),single(hff,pref_only=true),epsilon_greedy(hlm),single(hlm,pref_only=true)],boost=1000),"
+          "preferred=[hff,hlm],cost_type=one,reopen_closed=false,randomize_successors=true)))"]),
+
+    # Pareto open-list
+    ("lazy_pareto-hff-hlm", ["--search",
+          "let(hlm, lmcount(lm_rhw(),transform=adapt_costs(one)),"
+          "let(hff, ff(transform=adapt_costs(one)),"
+          "lazy(alt([single(hff),single(hlm), pareto([hlm, hff])]),"
+          "cost_type=one,reopen_closed=false,randomize_successors=true)))"]),
+    ("lazy_pareto-hff-hcg", ["--search",
+          "let(hcg, cg(transform=adapt_costs(one)),"
+          "let(hff, ff(transform=adapt_costs(one)),"
+          "lazy(alt([single(hff),single(hcg), pareto([hcg, hff])]),"
+          "cost_type=one,reopen_closed=false,randomize_successors=true)))"]),
+    ("lazy_pareto-hff-hcea", ["--search",
+          "let(hcea, cea(transform=adapt_costs(one)),"
+          "let(hff, ff(transform=adapt_costs(one)),"
+          "lazy(alt([single(hff),single(hcea), pareto([hcea, hff])]),"
+          "cost_type=one,reopen_closed=false,randomize_successors=true)))"]),
+    ("lazy_pareto-hff-hlm_pref_ops", ["--search",
+          "let(hlm, lmcount(lm_rhw(), pref=true, transform=adapt_costs(one)),"
+          "let(hff, ff(transform=adapt_costs(one)),"
+          "lazy(alt([single(hff),single(hff,pref_only=true),single(hlm),single(hlm,pref_only=true), pareto([hlm, hff])],boost=1000),"
+          "preferred=[hff,hlm],cost_type=one,reopen_closed=false,randomize_successors=true)))"]),
+    ]
 )
 
 BUILD_OPTIONS = []
@@ -64,7 +158,7 @@ ATTRIBUTES = [
     #"score_total_time",
     "total_time",
     "coverage",
-    #"expansions_until_last_jump",
+    "expansions",
     #"memory",
 ]
 
@@ -93,6 +187,9 @@ for rev, rev_nick in REVS:
             )
             run = FastDownwardRun(exp, algo, task)
             exp.add_run(run)
+
+for i in CONFIGS:
+    print(i)
 
 exp.add_parser(project.FastDownwardExperiment.EXITCODE_PARSER)
 #exp.add_parser(project.FastDownwardExperiment.TRANSLATOR_PARSER)
