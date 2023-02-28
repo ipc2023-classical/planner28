@@ -40,6 +40,8 @@ def get_configs_from_portfolio(portfolio_nick, portfolio_path):
     ]
 
 CONFIGS = (
+    get_configs_from_portfolio("fdss-1", REPO / "driver" / "portfolios" / "seq_sat_fdss_1.py") +
+    get_configs_from_portfolio("fdss-2", REPO / "driver" / "portfolios" / "seq_sat_fdss_2.py") +
     get_configs_from_portfolio("fdss-2014", REPO / "driver" / "portfolios" / "seq_sat_fdss_2014.py") +
     get_configs_from_portfolio("fdss-2018", REPO / "driver" / "portfolios" / "seq_sat_fdss_2018.py") +
     [
@@ -138,6 +140,20 @@ CONFIGS = (
     ]
 )
 
+
+print("Number of configs BEFORE removing duplicates: %d" % len(CONFIGS))
+
+set_of_commands = set()
+unique_configs = []
+for config in CONFIGS:
+    # Command is originally a list, but list is not hashable
+    command = tuple(config[1])
+    if command not in set_of_commands:
+        set_of_commands.add(command)
+        unique_configs.append(config)
+
+CONFIGS = unique_configs
+print("Number of configs AFTER removing duplicates: %d" % len(CONFIGS))
 
 BUILD_OPTIONS = []
 DRIVER_OPTIONS = [
