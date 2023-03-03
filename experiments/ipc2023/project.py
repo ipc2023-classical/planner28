@@ -141,6 +141,14 @@ def add_evaluations_per_time(run):
     return run
 
 
+def strip_properties(run):
+    stripped_run = {}
+    for attribute in ["id", "domain", "problem", "algorithm", "component_options", "cost", "coverage", "memory", "run_dir", "total_time"]:
+        if attribute in run:
+            stripped_run[attribute] = run[attribute]
+    return stripped_run
+
+
 def _get_exp_dir_relative_to_repo():
     repo_name = get_repo_base().name
     script = Path(tools.get_script_path())

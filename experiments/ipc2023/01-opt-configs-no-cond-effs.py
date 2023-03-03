@@ -38,15 +38,8 @@ def append_por(run):
     run["id"][0] += "-por"
     return run
 
-def strip_properties(run):
-    stripped_run = {}
-    for attribute in ["id", "domain", "problem", "algorithm", "component_options", "cost", "coverage", "memory", "run_dir", "total_time"]:
-        if attribute in run:
-            stripped_run[attribute] = run[attribute]
-    return stripped_run
-
-project.fetch_algorithms(exp, "2023-02-15-A-opt-configs-no-cond-effs", filters=[strip_properties, ignore_duplicate_tasks, ignore_fsc_tasks])
-project.fetch_algorithms(exp, "2023-02-24-D-opt-configs-no-cond-effs", filters=[strip_properties, ignore_duplicate_tasks, ignore_fsc_tasks, append_por])
+project.fetch_algorithms(exp, "2023-02-15-A-opt-configs-no-cond-effs", filters=[project.strip_properties, ignore_duplicate_tasks, ignore_fsc_tasks])
+project.fetch_algorithms(exp, "2023-02-24-D-opt-configs-no-cond-effs", filters=[project.strip_properties, ignore_duplicate_tasks, ignore_fsc_tasks, append_por])
 
 project.add_absolute_report(
     exp, attributes=ATTRIBUTES, name=f"{exp.name}-full"
