@@ -1,3 +1,4 @@
+from collections import defaultdict
 from pathlib import Path
 import platform
 import re
@@ -6,6 +7,7 @@ import sys
 import traceback
 
 from downward.experiment import FastDownwardExperiment
+from downward.reports import PlanningReport
 from downward.reports.absolute import AbsoluteReport
 from downward.reports.scatter import ScatterPlotReport
 from downward.reports.taskwise import TaskwiseReport
@@ -127,6 +129,10 @@ def remove_properties(eval_dir: Path):
             pass
 
 
+def compress_properties(eval_dir: Path):
+    subprocess.run(["xz", "--force", str(eval_dir / "properties")])
+
+
 def add_evaluations_per_time(run):
     evaluations = run.get("evaluations")
     time = run.get("search_time")
@@ -214,7 +220,7 @@ def add_absolute_report(exp, *, name=None, outfile=None, **kwargs):
     exp.add_report(report, name=name, outfile=outfile)
     if not REMOTE:
         exp.add_step(f"open-{name}", subprocess.call, ["xdg-open", outfile])
-    exp.add_step(f"publish-{name}", subprocess.call, ["publish", outfile])
+    #exp.add_step(f"publish-{name}", subprocess.call, ["publish", outfile])
 
 
 def add_scatter_plot_reports(exp, algorithm_pairs, attributes, *, filter=None):
@@ -229,3 +235,26 @@ def add_scatter_plot_reports(exp, algorithm_pairs, attributes, *, filter=None):
                     format="tex" if TEX else "png",
                 ),
                 name=f"{exp.name}-{algo1}-{algo2}-{attribute}{'-relative' if RELATIVE else ''}")
+
+
+class Hardest30Report(PlanningReport):
+    """
+    Keep the 30 tasks from each domain that are solved by the fewest number of planners.
+    """
+    def get_text(self):
+        solved_by = defaultdict(int)
+        for run in self.props.values():
+            if run.get("coverage"):
+                solved_by[(run["domain"], run["problem"])] += 1
+        hardest_tasks = {}
+        for domain, problems in sorted(self.domains.items()):
+            solved_problems = [problem for problem in problems if solved_by[(domain, problem)] > 0]
+            solved_problems.sort(key=lambda problem: solved_by[(domain, problem)])
+            hardest_tasks[domain] = set(solved_problems[:30])
+        for domain, problems in sorted(self.domains.items()):
+            print(domain, len(problems), len(hardest_tasks[domain]))
+        new_props = tools.Properties()
+        for key, run in self.props.items():
+            if run["problem"] in hardest_tasks[run["domain"]]:
+                new_props[key] = run
+        return str(new_props)

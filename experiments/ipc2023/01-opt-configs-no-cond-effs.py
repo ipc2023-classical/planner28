@@ -49,7 +49,14 @@ project.fetch_algorithms(exp, "2023-02-15-A-opt-configs-no-cond-effs", filters=[
 project.fetch_algorithms(exp, "2023-02-24-D-opt-configs-no-cond-effs", filters=[strip_properties, ignore_duplicate_tasks, ignore_fsc_tasks, append_por])
 
 project.add_absolute_report(
-    exp, attributes=ATTRIBUTES, name=f"{exp.name}"
+    exp, attributes=ATTRIBUTES, name=f"{exp.name}-full"
+)
+
+exp.add_report(project.Hardest30Report(), outfile="properties", name="keep-only-hardest-tasks-in-properties")
+exp.add_step("compress-properties", project.compress_properties, Path(exp.eval_dir))
+
+project.add_absolute_report(
+    exp, attributes=ATTRIBUTES, name=f"{exp.name}-hardest"
 )
 
 exp.run_steps()
