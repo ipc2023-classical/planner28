@@ -1,6 +1,7 @@
 #! /usr/bin/env python
 
 import argparse
+from collections import defaultdict
 import time
 
 import numpy as np
@@ -36,6 +37,13 @@ class Portfolio(object):
 
     def get_total_added_score(self, timeout, config):
         return np.sum(self.get_added_scores(timeout, config))
+
+    def uniquify_configs(self):
+        print("Only keep longest time slice for each config, but preserve order of first occurences.")
+        max_times = defaultdict(int)
+        for timeout, config in self.configs:
+            max_times[config] = max(max_times[config], timeout)
+        self.configs = [(timeout, config) for config, timeout in max_times.items()]
 
     def dump(self):
         print("portfolio for %.2f seconds solves %d problems with score %.2f" % (
@@ -103,9 +111,11 @@ def main():
     print("Computing portfolio...")
     start_time = time.process_time()
     portfolio = compute_portfolio(results, track=args.track, portfolio_time=args.portfolio_time)
+    if args.track == "opt":
+        portfolio.uniquify_configs()
     portfolio.dump()
     print()
-    print(f"Time for computing portfolio: {time.process_time() - start_time}s")
+    print(f"Time for computing portfolio: {time.process_time() - start_time:.2f}s")
     print()
     print("Configs:", len(portfolio.configs))
     print("Unique configs:", len(set(c for t, c in portfolio.configs)))
