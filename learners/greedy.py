@@ -1,10 +1,6 @@
-#! /usr/bin/env python2
-# -*- coding: utf-8 -*-
-
-from __future__ import division
+#! /usr/bin/env python
 
 import argparse
-import json
 import time
 
 import numpy as np
@@ -42,8 +38,8 @@ class Portfolio(object):
         return np.sum(self.get_added_scores(timeout, config))
 
     def dump(self):
-        print "portfolio for %.2f seconds solves %d problems with score %.2f" % (
-            self.total_timeout(), self.num_solved(), self.total_score())
+        print("portfolio for %.2f seconds solves %d problems with score %.2f" % (
+            self.total_timeout(), self.num_solved(), self.total_score()))
 
     def dump_portfolio(self, track, outfile):
         stonesoup.dump_portfolio(
@@ -65,24 +61,25 @@ def get_candidates(num_configs, remaining_time):
 def compute_portfolio(results, track, portfolio_time):
     portfolio = Portfolio(results)
     portfolio.dump()
-    print
+    print()
     while portfolio.total_timeout() < portfolio_time:
         if track == "agl":
             results.update_agile_scores(portfolio.total_timeout(), portfolio_time)
 
-        def score((timeout, config)):
+        def score(time_out_and_config):
+            (timeout, config) = time_out_and_config
             additional_score = portfolio.get_total_added_score(timeout, config)
             return additional_score / timeout
 
         remaining_time = portfolio_time - portfolio.total_timeout()
         timeout, config = max(get_candidates(len(results.configs), remaining_time), key=score)
         if portfolio.get_total_added_score(timeout, config) > stonesoup.EPSILON:
-            print "run config {config} for {timeout} seconds".format(**locals())
+            print(f"run config {config} for {timeout} seconds")
             portfolio.add_config(timeout, config)
             portfolio.dump()
-            print
+            print()
         else:
-            print "Improvement below {}".format(stonesoup.EPSILON)
+            print("Improvement below {}".format(stonesoup.EPSILON))
             break
     return portfolio
 
@@ -98,25 +95,24 @@ def parse_args():
 
 def main():
     args = parse_args()
-    with open(args.properties_file) as f:
-        props = json.load(f)
-    results = stonesoup.Results(props.values(), track=args.track, timeout=args.portfolio_time)
+    props = stonesoup.read_properties(args.properties_file)
+    results = stonesoup.Results(list(props.values()), track=args.track, timeout=args.portfolio_time)
     if args.track == "agl":
         results.update_agile_scores(0, args.portfolio_time)
     results.dump_statistics()
-    print "Computing portfolio..."
-    start_time = time.clock()
+    print("Computing portfolio...")
+    start_time = time.process_time()
     portfolio = compute_portfolio(results, track=args.track, portfolio_time=args.portfolio_time)
     portfolio.dump()
-    print
-    print "Time for computing portfolio: {}s".format(time.clock() - start_time)
-    print
-    print "Configs:", len(portfolio.configs)
-    print "Unique configs:", len(set(c for t, c in portfolio.configs))
-    print "Min time limit:", min(t for t, c in portfolio.configs)
-    print "Max time limit:", max(t for t, c in portfolio.configs)
-    print "Final score: ", portfolio.total_score()
-    print
+    print()
+    print(f"Time for computing portfolio: {time.process_time() - start_time}s")
+    print()
+    print("Configs:", len(portfolio.configs))
+    print("Unique configs:", len(set(c for t, c in portfolio.configs)))
+    print("Min time limit:", min(t for t, c in portfolio.configs))
+    print("Max time limit:", max(t for t, c in portfolio.configs))
+    print("Final score: ", portfolio.total_score())
+    print()
     portfolio.dump_portfolio(args.track, args.outfile)
 
 
