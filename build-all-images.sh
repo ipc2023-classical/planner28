@@ -7,8 +7,9 @@ cd $(dirname "$0")
 OUTDIR=images/
 mkdir -p ${OUTDIR}
 
-for name in fdss-2023-opt fd-greedy-opt ; do
-    ./build-image.sh Apptainer.${name} ${OUTDIR}/${name}.img
+for recipe in Apptainer.* ; do
+    name="${recipe##*.}"
+    ./build-image.sh ${recipe} ${OUTDIR}/${name}.img
 done
 
 echo "Finished building images"
