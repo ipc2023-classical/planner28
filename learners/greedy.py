@@ -84,6 +84,8 @@ def compute_portfolio(results, track, portfolio_time):
         if portfolio.get_total_added_score(timeout, config) > stonesoup.EPSILON:
             print(f"run config {config} for {timeout} seconds")
             portfolio.add_config(timeout, config)
+            if track == "opt":
+                portfolio.uniquify_configs()
             portfolio.dump()
             print()
         else:
@@ -111,8 +113,6 @@ def main():
     print("Computing portfolio...")
     start_time = time.process_time()
     portfolio = compute_portfolio(results, track=args.track, portfolio_time=args.portfolio_time)
-    if args.track == "opt":
-        portfolio.uniquify_configs()
     portfolio.dump()
     print()
     print(f"Time for computing portfolio: {time.process_time() - start_time:.2f}s")
