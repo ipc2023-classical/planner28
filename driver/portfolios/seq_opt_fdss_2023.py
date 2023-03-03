@@ -1,5 +1,5 @@
 SAS_FILE = "output.sas"
-TRACK = "opt"
+OPTIMAL = True
 
 """
 Coverage: 1309
