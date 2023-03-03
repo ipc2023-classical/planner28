@@ -119,6 +119,14 @@ def remove_file(path: Path):
         pass
 
 
+def remove_properties(eval_dir: Path):
+    for name in ["properties", "properties.xz"]:
+        try:
+            (eval_dir / name).unlink()
+        except FileNotFoundError:
+            pass
+
+
 def add_evaluations_per_time(run):
     evaluations = run.get("evaluations")
     time = run.get("search_time")
