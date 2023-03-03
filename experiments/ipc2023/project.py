@@ -143,7 +143,7 @@ def add_evaluations_per_time(run):
 
 def strip_properties(run):
     stripped_run = {}
-    for attribute in ["id", "domain", "problem", "algorithm", "component_options", "cost", "coverage", "memory", "run_dir", "total_time"]:
+    for attribute in ["id", "error", "domain", "problem", "algorithm", "component_options", "cost", "coverage", "memory", "run_dir", "total_time"]:
         if attribute in run:
             stripped_run[attribute] = run[attribute]
     return stripped_run
