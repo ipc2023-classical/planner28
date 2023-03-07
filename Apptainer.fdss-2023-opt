@@ -46,11 +46,11 @@ Stage: run
         "$DOMAINFILE" \
         "$PROBLEMFILE"
 
-## Define meta data
+# Define meta data
 %labels
 Name        Fast Downward Stone Soup 2023 Optimal
 Description TODO
-Authors     TODO Florian Pommerening <florian.pommerening@unibas.ch>
+Authors     Clemens Büchner <clemens.buechner@unibas.ch>, Remo Christen <remo.christen@unibas.ch>, Augusto Blaas Corrêa <augusto.blaascorrea@unibas.ch>, Salomé Eriksson <salome.eriksson@unibas.ch>, Patrick Ferber <patrick.ferber@unibas.ch>, Jendrik Seipp <jendrik.seipp@liu.se>, Silvan Sievers <silvan.sievers@unibas.ch
 License     GPL 3
 Tracks      optimal
 SupportsDerivedPredicates                       no
