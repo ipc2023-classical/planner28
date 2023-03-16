@@ -1,0 +1,484 @@
+briefcaseworld-adl:0-p001.pddl: 1 different costs from 0 to 0
+briefcaseworld-adl:0-p002.pddl: 1 different costs from 5 to 5
+briefcaseworld-adl:0-p003.pddl: 1 different costs from 9 to 9
+briefcaseworld-adl:0-p004.pddl: 1 different costs from 10 to 10
+briefcaseworld-adl:0-p005.pddl: 1 different costs from 12 to 12
+briefcaseworld-adl:0-p006.pddl: 1 different costs from 17 to 17
+briefcaseworld-adl:0-p007.pddl: 1 different costs from 17 to 17
+briefcaseworld-adl:0-p008.pddl: 1 different costs from 24 to 24
+briefcaseworld-adl:1-p01.pddl: 1 different costs from 0 to 0
+briefcaseworld-adl:1-p02.pddl: 1 different costs from 5 to 5
+briefcaseworld-adl:1-p03.pddl: 1 different costs from 4 to 4
+briefcaseworld-adl:1-p04.pddl: 1 different costs from 10 to 10
+briefcaseworld-adl:1-p05.pddl: 1 different costs from 13 to 13
+briefcaseworld-adl:1-p06.pddl: 1 different costs from 15 to 15
+briefcaseworld-adl:1-p07.pddl: 1 different costs from 21 to 21
+briefcaseworld-adl:1-p08.pddl: 1 different costs from 21 to 21
+caldera-adl:0-p01.pddl: 1 different costs from 7 to 7
+caldera-adl:0-p02.pddl: 1 different costs from 7 to 7
+caldera-adl:0-p03.pddl: 1 different costs from 7 to 7
+caldera-adl:0-p04.pddl: 1 different costs from 7 to 7
+caldera-adl:0-p05.pddl: 1 different costs from 12 to 12
+caldera-adl:0-p06.pddl: 1 different costs from 12 to 12
+caldera-adl:0-p07.pddl: 1 different costs from 11 to 11
+caldera-adl:0-p08.pddl: 1 different costs from 12 to 12
+caldera-adl:0-p09.pddl: 1 different costs from 15 to 15
+caldera-adl:0-p10.pddl: 1 different costs from 15 to 15
+caldera-adl:0-p11.pddl: 1 different costs from 15 to 15
+caldera-adl:0-p12.pddl: 1 different costs from 16 to 16
+caldera-adl:1-p01.pddl: 1 different costs from 11 to 11
+caldera-adl:1-p02.pddl: 1 different costs from 11 to 11
+caldera-adl:1-p03.pddl: 1 different costs from 16 to 16
+caldera-adl:1-p04.pddl: 1 different costs from 16 to 16
+caldera-split-adl:0-p01.pddl: 1 different costs from 42 to 42
+caldera-split-adl:0-p02.pddl: 1 different costs from 42 to 42
+caldera-split-adl:0-p03.pddl: 1 different costs from 42 to 42
+caldera-split-adl:0-p04.pddl: 1 different costs from 42 to 42
+caldera-split-adl:0-p05.pddl: 1 different costs from 72 to 72
+caldera-split-adl:0-p06.pddl: 1 different costs from 72 to 72
+caldera-split-adl:0-p07.pddl: 1 different costs from 66 to 66
+caldera-split-adl:0-p08.pddl: 1 different costs from 72 to 72
+caldera-split-adl:0-p10.pddl: 1 different costs from 90 to 90
+caldera-split-adl:1-p01.pddl: 1 different costs from 66 to 66
+caldera-split-adl:1-p02.pddl: 1 different costs from 66 to 66
+cavediving-adl:0-testing06A_easy.pddl: 1 different costs from 95 to 95
+cavediving-adl:0-testing07_easy.pddl: 1 different costs from 131 to 131
+cavediving-adl:0-testing08_easy.pddl: 1 different costs from 90 to 90
+cavediving-adl:0-testing18A_easy.pddl: 1 different costs from 131 to 131
+cavediving-adl:0-testing18_easy.pddl: 1 different costs from 131 to 131
+cavediving-adl:0-testing20A_easy.pddl: 1 different costs from 98 to 98
+cavediving-adl:1-p-2_2-2-0.4.pddl: 1 different costs from 131 to 131
+cavediving-adl:1-p-2_2-2-0.5.pddl: 1 different costs from 131 to 131
+cavediving-adl:1-p-2_2-2-0.6.pddl: 1 different costs from 86 to 86
+cavediving-adl:1-p-2_2_2-2-0.4.pddl: 1 different costs from 131 to 131
+cavediving-adl:1-p-2_2_2-2-0.45.pddl: 1 different costs from 86 to 86
+cavediving-adl:1-p-2_2_2-2-0.5.pddl: 1 different costs from 131 to 131
+cavediving-adl:1-p-2_2_2-2-0.55.pddl: 1 different costs from 83 to 83
+cavediving-adl:1-p-2_2_2-2-0.6.pddl: 1 different costs from 82 to 82
+cavediving-adl:1-p-2_2_2_2-2-0.4.pddl: 1 different costs from 131 to 131
+cavediving-adl:1-p-2_2_2_2-2-0.5.pddl: 1 different costs from 91 to 91
+cavediving-adl:1-p-2_2_2_2-2-0.55.pddl: 1 different costs from 131 to 131
+cavediving-adl:1-p-2_2_2_2-2-0.6.pddl: 1 different costs from 89 to 89
+cavediving-adl:1-p-3_2-2-0.5.pddl: 1 different costs from 84 to 84
+cavediving-adl:1-p-3_2-2-0.55.pddl: 1 different costs from 83 to 83
+cavediving-adl:1-p-3_2-2-0.6.pddl: 1 different costs from 82 to 82
+cavediving-adl:1-p-3_2_2-2-0.4.pddl: 1 different costs from 88 to 88
+cavediving-adl:1-p-3_2_2-2-0.45.pddl: 1 different costs from 131 to 131
+cavediving-adl:1-p-3_2_2-2-0.5.pddl: 1 different costs from 131 to 131
+cavediving-adl:1-p-3_2_2-2-0.6.pddl: 1 different costs from 81 to 81
+cavediving-adl:1-p-3_3_2-2-0.4.pddl: 1 different costs from 131 to 131
+cavediving-adl:1-p-3_3_2-2-0.45.pddl: 1 different costs from 87 to 87
+cavediving-adl:1-p-3_3_2-2-0.5.pddl: 1 different costs from 87 to 87
+cavediving-adl:1-p-3_3_2-2-0.55.pddl: 1 different costs from 83 to 83
+cavediving-adl:1-p-3_3_2-2-0.6.pddl: 1 different costs from 86 to 86
+citycar-adl:0-p2-2-2-1-2.pddl: 1 different costs from 46 to 46
+citycar-adl:0-p2-2-2-2-1.pddl: 1 different costs from 64 to 64
+citycar-adl:0-p2-2-3-1-2.pddl: 1 different costs from 50 to 50
+citycar-adl:0-p2-2-3-2-2.pddl: 1 different costs from 50 to 50
+citycar-adl:0-p2-2-4-1-2.pddl: 1 different costs from 52 to 52
+citycar-adl:0-p2-2-5-2-2.pddl: 1 different costs from 76 to 76
+citycar-adl:0-p2-2-6-1-1.pddl: 1 different costs from 58 to 58
+citycar-adl:0-p2-2-6-2-2.pddl: 1 different costs from 58 to 58
+citycar-adl:0-p2-3-2-3-1.pddl: 1 different costs from 68 to 68
+citycar-adl:0-p2-3-3-3-1.pddl: 1 different costs from 78 to 78
+citycar-adl:0-p2-3-4-3-1.pddl: 1 different costs from 82 to 82
+citycar-adl:0-p3-3-2-2-1.pddl: 1 different costs from 70 to 70
+citycar-adl:0-p3-3-2-2-2.pddl: 1 different costs from 92 to 92
+citycar-adl:0-p3-3-2-3-1.pddl: 1 different costs from 48 to 48
+citycar-adl:0-p3-3-2-3-2.pddl: 1 different costs from 70 to 70
+citycar-adl:0-p3-3-3-3-2.pddl: 1 different costs from 76 to 76
+citycar-adl:1-p3-2-2-0-1.pddl: 1 different costs from 70 to 70
+citycar-adl:2-p002.pddl: 1 different costs from 58 to 58
+citycar-adl:2-p003.pddl: 1 different costs from 70 to 70
+citycar-adl:2-p004.pddl: 1 different costs from 88 to 88
+citycar-adl:2-p019.pddl: 1 different costs from 70 to 70
+citycar-adl:2-p034.pddl: 1 different costs from 68 to 68
+citycar-adl:2-p145.pddl: 1 different costs from 70 to 70
+citycar-adl:2-p147.pddl: 1 different costs from 92 to 92
+citycar-adl:2-p148.pddl: 1 different costs from 88 to 88
+citycar-adl:2-p151.pddl: 1 different costs from 86 to 86
+citycar-adl:2-p164.pddl: 1 different costs from 80 to 80
+citycar-adl:2-p180.pddl: 1 different costs from 48 to 48
+citycar-adl:2-p193.pddl: 1 different costs from 72 to 72
+citycar-adl:2-p194.pddl: 1 different costs from 82 to 82
+flashfill-adl:0-p16.pddl: 1 different costs from 310 to 310
+flashfill-adl:0-p17.pddl: 1 different costs from 310 to 310
+gedp-ds2ndp-adl:0-d-1-2.pddl: 1 different costs from 1 to 1
+gedp-ds2ndp-adl:0-d-1-3.pddl: 1 different costs from 4 to 4
+gedp-ds2ndp-adl:0-d-1-8.pddl: 1 different costs from 4 to 4
+gedp-ds2ndp-adl:0-d-2-3.pddl: 1 different costs from 3 to 3
+gedp-ds2ndp-adl:0-d-2-4.pddl: 1 different costs from 2 to 2
+gedp-ds2ndp-adl:0-d-3-1.pddl: 1 different costs from 4 to 4
+gedp-ds2ndp-adl:0-d-3-2.pddl: 1 different costs from 3 to 3
+gedp-ds2ndp-adl:0-d-3-4.pddl: 1 different costs from 5 to 5
+gedp-ds2ndp-adl:0-d-4-2.pddl: 1 different costs from 2 to 2
+gedp-ds2ndp-adl:0-d-4-3.pddl: 1 different costs from 5 to 5
+gedp-ds2ndp-adl:0-d-5-7.pddl: 1 different costs from 4 to 4
+gedp-ds2ndp-adl:0-d-6-7.pddl: 1 different costs from 4 to 4
+gedp-ds2ndp-adl:0-d-7-5.pddl: 1 different costs from 4 to 4
+gedp-ds2ndp-adl:0-d-7-6.pddl: 1 different costs from 4 to 4
+gedp-ds2ndp-adl:0-d-8-1.pddl: 1 different costs from 4 to 4
+maintenance-adl:0-maintenance-1-3-010-010-2-000.pddl: 1 different costs from 4 to 4
+maintenance-adl:0-maintenance-1-3-010-010-2-001.pddl: 1 different costs from 7 to 7
+maintenance-adl:0-maintenance-1-3-010-010-2-002.pddl: 1 different costs from 6 to 6
+maintenance-adl:0-maintenance-1-3-015-020-2-001.pddl: 1 different costs from 11 to 11
+maintenance-adl:0-maintenance-1-3-015-020-2-002.pddl: 1 different costs from 9 to 9
+miconic-simpleadl-adl:0-s10-3.pddl: 1 different costs from 28 to 28
+miconic-simpleadl-adl:0-s11-3.pddl: 1 different costs from 32 to 32
+miconic-simpleadl-adl:0-s11-4.pddl: 1 different costs from 26 to 26
+miconic-simpleadl-adl:0-s12-1.pddl: 1 different costs from 32 to 32
+miconic-simpleadl-adl:0-s13-0.pddl: 1 different costs from 36 to 36
+miconic-simpleadl-adl:0-s13-2.pddl: 1 different costs from 40 to 40
+miconic-simpleadl-adl:0-s13-3.pddl: 1 different costs from 34 to 34
+miconic-simpleadl-adl:0-s13-4.pddl: 1 different costs from 31 to 31
+miconic-simpleadl-adl:0-s14-3.pddl: 1 different costs from 29 to 29
+miconic-simpleadl-adl:0-s15-0.pddl: 1 different costs from 33 to 33
+miconic-simpleadl-adl:0-s15-1.pddl: 1 different costs from 40 to 40
+miconic-simpleadl-adl:0-s16-0.pddl: 1 different costs from 42 to 42
+miconic-simpleadl-adl:0-s16-2.pddl: 1 different costs from 46 to 46
+miconic-simpleadl-adl:0-s16-4.pddl: 1 different costs from 43 to 43
+miconic-simpleadl-adl:0-s17-0.pddl: 1 different costs from 44 to 44
+miconic-simpleadl-adl:0-s17-1.pddl: 1 different costs from 41 to 41
+miconic-simpleadl-adl:0-s17-2.pddl: 1 different costs from 41 to 41
+miconic-simpleadl-adl:0-s17-3.pddl: 1 different costs from 52 to 52
+miconic-simpleadl-adl:0-s18-1.pddl: 1 different costs from 45 to 45
+miconic-simpleadl-adl:0-s2-0.pddl: 1 different costs from 6 to 6
+miconic-simpleadl-adl:0-s2-2.pddl: 1 different costs from 6 to 6
+miconic-simpleadl-adl:0-s2-3.pddl: 1 different costs from 6 to 6
+miconic-simpleadl-adl:0-s2-4.pddl: 1 different costs from 6 to 6
+miconic-simpleadl-adl:0-s20-3.pddl: 1 different costs from 46 to 46
+miconic-simpleadl-adl:0-s3-1.pddl: 1 different costs from 10 to 10
+miconic-simpleadl-adl:0-s3-4.pddl: 1 different costs from 8 to 8
+miconic-simpleadl-adl:0-s4-3.pddl: 1 different costs from 14 to 14
+miconic-simpleadl-adl:0-s7-4.pddl: 1 different costs from 23 to 23
+miconic-simpleadl-adl:0-s8-3.pddl: 1 different costs from 24 to 24
+miconic-simpleadl-adl:0-s9-0.pddl: 1 different costs from 26 to 26
+nurikabe-adl:0-p01.pddl: 1 different costs from 7 to 7
+nurikabe-adl:0-p02.pddl: 1 different costs from 9 to 9
+nurikabe-adl:0-p03.pddl: 1 different costs from 11 to 11
+nurikabe-adl:0-p04.pddl: 1 different costs from 16 to 16
+nurikabe-adl:0-p05.pddl: 1 different costs from 15 to 15
+nurikabe-adl:0-p06.pddl: 1 different costs from 27 to 27
+nurikabe-adl:0-p07.pddl: 1 different costs from 29 to 29
+nurikabe-adl:0-p08.pddl: 1 different costs from 38 to 38
+nurikabe-adl:0-p09.pddl: 1 different costs from 38 to 38
+nurikabe-adl:0-p10.pddl: 1 different costs from 45 to 45
+nurikabe-adl:0-p11.pddl: 1 different costs from 55 to 55
+nurikabe-adl:0-p12.pddl: 1 different costs from 60 to 60
+nurikabe-adl:1-p01.pddl: 1 different costs from 32 to 32
+nurikabe-adl:1-p02.pddl: 1 different costs from 38 to 38
+nurikabe-adl:1-p03.pddl: 1 different costs from 42 to 42
+nurikabe-adl:1-p04.pddl: 1 different costs from 52 to 52
+nurikabe-adl:1-p05.pddl: 1 different costs from 56 to 56
+nurikabe-adl:1-p06.pddl: 1 different costs from 59 to 59
+pathways-noneg-adl:0-p01.pddl: 1 different costs from 6 to 6
+pathways-noneg-adl:0-p02.pddl: 1 different costs from 12 to 12
+pathways-noneg-adl:0-p03.pddl: 1 different costs from 18 to 18
+pathways-noneg-adl:0-p04.pddl: 1 different costs from 17 to 17
+schedule-adl:0-probschedule-11-1.pddl: 1 different costs from 12 to 12
+schedule-adl:0-probschedule-12-0.pddl: 1 different costs from 14 to 14
+schedule-adl:0-probschedule-12-1.pddl: 1 different costs from 14 to 14
+schedule-adl:0-probschedule-12-2.pddl: 1 different costs from 14 to 14
+schedule-adl:0-probschedule-13-0.pddl: 1 different costs from 15 to 15
+schedule-adl:0-probschedule-20-0.pddl: 1 different costs from 24 to 24
+schedule-adl:1-p077.pddl: 1 different costs from 17 to 17
+schedule-adl:1-p078.pddl: 1 different costs from 14 to 14
+schedule-adl:1-p093.pddl: 1 different costs from 13 to 13
+schedule-adl:1-p097.pddl: 1 different costs from 17 to 17
+schedule-adl:1-p100.pddl: 1 different costs from 19 to 19
+schedule-adl:1-p117.pddl: 1 different costs from 11 to 11
+schedule-adl:1-p119.pddl: 1 different costs from 14 to 14
+schedule-adl:1-p127.pddl: 1 different costs from 17 to 17
+schedule-adl:1-p131.pddl: 1 different costs from 15 to 15
+schedule-adl:1-p140.pddl: 1 different costs from 14 to 14
+schedule-adl:1-p142.pddl: 1 different costs from 15 to 15
+schedule-adl:1-p147.pddl: 1 different costs from 17 to 17
+schedule-adl:1-p148.pddl: 1 different costs from 15 to 15
+schedule-adl:1-p150.pddl: 1 different costs from 18 to 18
+schedule-adl:1-p151.pddl: 1 different costs from 14 to 14
+schedule-adl:1-p153.pddl: 1 different costs from 20 to 20
+schedule-adl:1-p155.pddl: 1 different costs from 21 to 21
+schedule-adl:1-p156.pddl: 1 different costs from 16 to 16
+schedule-adl:1-p158.pddl: 1 different costs from 14 to 14
+schedule-adl:1-p159.pddl: 1 different costs from 17 to 17
+schedule-adl:1-p160.pddl: 1 different costs from 14 to 14
+schedule-adl:1-p162.pddl: 1 different costs from 16 to 16
+schedule-adl:1-p163.pddl: 1 different costs from 20 to 20
+schedule-adl:1-p164.pddl: 1 different costs from 17 to 17
+settlers-adl:0-p01.pddl: 1 different costs from 60 to 60
+settlers-adl:0-p02.pddl: 1 different costs from 115 to 115
+settlers-adl:0-p03.pddl: 1 different costs from 90 to 90
+settlers-adl:0-p04.pddl: 1 different costs from 115 to 115
+settlers-adl:0-p05.pddl: 1 different costs from 170 to 170
+settlers-adl:0-p06.pddl: 1 different costs from 125 to 125
+settlers-adl:0-p11.pddl: 1 different costs from 60 to 60
+settlers-adl:0-p12.pddl: 1 different costs from 70 to 70
+settlers-adl:0-p13.pddl: 1 different costs from 125 to 125
+t0-coins-adl:0-coins_p-01.pddl: 1 different costs from 12 to 12
+t0-coins-adl:0-coins_p-03.pddl: 1 different costs from 13 to 13
+t0-coins-adl:0-coins_p-05.pddl: 1 different costs from 13 to 13
+t0-coins-adl:0-coins_p-06.pddl: 1 different costs from 33 to 33
+t0-coins-adl:0-coins_p-07.pddl: 1 different costs from 31 to 31
+t0-coins-adl:0-coins_p-08.pddl: 1 different costs from 31 to 31
+t0-coins-adl:0-coins_p-09.pddl: 1 different costs from 30 to 30
+t0-coins-adl:0-coins_p-10.pddl: 1 different costs from 31 to 31
+t0-comm-adl:0-comm_c-01.pddl: 1 different costs from 15 to 15
+t0-comm-adl:0-comm_c-02.pddl: 1 different costs from 23 to 23
+t0-comm-adl:0-comm_c-03.pddl: 1 different costs from 31 to 31
+t0-comm-adl:0-comm_c-04.pddl: 1 different costs from 39 to 39
+t0-comm-adl:0-comm_c-05.pddl: 1 different costs from 47 to 47
+t0-grid-dispose-adl:0-family-grid-new_dispose-4-1.pddl: 1 different costs from 34 to 34
+t0-sortnet-adl:0-sortnet_03.pddl: 1 different costs from 9 to 9
+t0-sortnet-adl:0-sortnet_04.pddl: 1 different costs from 14 to 14
+t0-sortnet-alt-adl:0-sort-num_s-2.pddl: 1 different costs from 1 to 1
+t0-sortnet-alt-adl:0-sort-num_s-3.pddl: 1 different costs from 3 to 3
+t0-sortnet-alt-adl:0-sort-num_s-4.pddl: 1 different costs from 6 to 6
+t0-sortnet-alt-adl:0-sort-num_s-5.pddl: 1 different costs from 10 to 10
+t0-uts-adl:0-uts_k-01.pddl: 1 different costs from 7 to 7
+t0-uts-adl:0-uts_k-02.pddl: 1 different costs from 13 to 13
+t0-uts-adl:0-uts_k-03.pddl: 1 different costs from 19 to 19
+t0-uts-adl:0-uts_l-02.pddl: 1 different costs from 13 to 13
+t0-uts-adl:0-uts_l-03.pddl: 1 different costs from 19 to 19
+t0-uts-adl:0-uts_l-04.pddl: 1 different costs from 25 to 25
+t0-uts-adl:0-uts_l-05.pddl: 1 different costs from 31 to 31
+t0-uts-adl:0-uts_r-03.pddl: 1 different costs from 19 to 19
+t0-uts-adl:0-uts_r-04.pddl: 1 different costs from 25 to 25
+245 problems
+8 configs
+1960 results
+245 problems solved by someone
+176 problems solved by blind
+190 problems solved by hmax
+196 problems solved by mas-ssc-dfp-10s
+219 problems solved by mas-ssc-dfp-300s
+215 problems solved by mas-ssc-dfp-60s
+191 problems solved by mas-ssc-sbmiasm-10s
+206 problems solved by mas-ssc-sbmiasm-300s
+193 problems solved by mas-ssc-sbmiasm-60s
+176.00 score by blind
+190.00 score by hmax
+196.00 score by mas-ssc-dfp-10s
+219.00 score by mas-ssc-dfp-300s
+215.00 score by mas-ssc-dfp-60s
+191.00 score by mas-ssc-sbmiasm-10s
+206.00 score by mas-ssc-sbmiasm-300s
+193.00 score by mas-ssc-sbmiasm-60s
+Max problems solved by single config: 219
+Max score by single config: 219.0
+Computing portfolio using IPC scores...
+portfolio for 0.00 seconds solves 0 problems with score 0.00:
+      0.00 seconds for blind
+      0.00 seconds for hmax
+      0.00 seconds for mas-ssc-dfp-10s
+      0.00 seconds for mas-ssc-dfp-300s
+      0.00 seconds for mas-ssc-dfp-60s
+      0.00 seconds for mas-ssc-sbmiasm-10s
+      0.00 seconds for mas-ssc-sbmiasm-300s
+      0.00 seconds for mas-ssc-sbmiasm-60s
+
+portfolio for 120.00 seconds solves 170 problems with score 170.00:
+      0.00 seconds for blind
+      0.00 seconds for hmax
+      0.00 seconds for mas-ssc-dfp-10s
+      0.00 seconds for mas-ssc-dfp-300s
+    120.00 seconds for mas-ssc-dfp-60s
+      0.00 seconds for mas-ssc-sbmiasm-10s
+      0.00 seconds for mas-ssc-sbmiasm-300s
+      0.00 seconds for mas-ssc-sbmiasm-60s
+
+portfolio for 240.00 seconds solves 187 problems with score 187.00:
+      0.00 seconds for blind
+      0.00 seconds for hmax
+      0.00 seconds for mas-ssc-dfp-10s
+      0.00 seconds for mas-ssc-dfp-300s
+    240.00 seconds for mas-ssc-dfp-60s
+      0.00 seconds for mas-ssc-sbmiasm-10s
+      0.00 seconds for mas-ssc-sbmiasm-300s
+      0.00 seconds for mas-ssc-sbmiasm-60s
+
+portfolio for 360.00 seconds solves 196 problems with score 196.00:
+      0.00 seconds for blind
+      0.00 seconds for hmax
+      0.00 seconds for mas-ssc-dfp-10s
+      0.00 seconds for mas-ssc-dfp-300s
+    360.00 seconds for mas-ssc-dfp-60s
+      0.00 seconds for mas-ssc-sbmiasm-10s
+      0.00 seconds for mas-ssc-sbmiasm-300s
+      0.00 seconds for mas-ssc-sbmiasm-60s
+
+portfolio for 480.00 seconds solves 202 problems with score 202.00:
+      0.00 seconds for blind
+      0.00 seconds for hmax
+      0.00 seconds for mas-ssc-dfp-10s
+      0.00 seconds for mas-ssc-dfp-300s
+    480.00 seconds for mas-ssc-dfp-60s
+      0.00 seconds for mas-ssc-sbmiasm-10s
+      0.00 seconds for mas-ssc-sbmiasm-300s
+      0.00 seconds for mas-ssc-sbmiasm-60s
+
+portfolio for 600.00 seconds solves 206 problems with score 206.00:
+      0.00 seconds for blind
+      0.00 seconds for hmax
+      0.00 seconds for mas-ssc-dfp-10s
+      0.00 seconds for mas-ssc-dfp-300s
+    600.00 seconds for mas-ssc-dfp-60s
+      0.00 seconds for mas-ssc-sbmiasm-10s
+      0.00 seconds for mas-ssc-sbmiasm-300s
+      0.00 seconds for mas-ssc-sbmiasm-60s
+
+portfolio for 720.00 seconds solves 209 problems with score 209.00:
+      0.00 seconds for blind
+      0.00 seconds for hmax
+      0.00 seconds for mas-ssc-dfp-10s
+      0.00 seconds for mas-ssc-dfp-300s
+    600.00 seconds for mas-ssc-dfp-60s
+      0.00 seconds for mas-ssc-sbmiasm-10s
+    120.00 seconds for mas-ssc-sbmiasm-300s
+      0.00 seconds for mas-ssc-sbmiasm-60s
+
+portfolio for 840.00 seconds solves 211 problems with score 211.00:
+      0.00 seconds for blind
+    120.00 seconds for hmax
+      0.00 seconds for mas-ssc-dfp-10s
+      0.00 seconds for mas-ssc-dfp-300s
+    600.00 seconds for mas-ssc-dfp-60s
+      0.00 seconds for mas-ssc-sbmiasm-10s
+    120.00 seconds for mas-ssc-sbmiasm-300s
+      0.00 seconds for mas-ssc-sbmiasm-60s
+
+portfolio for 960.00 seconds solves 213 problems with score 213.00:
+      0.00 seconds for blind
+    120.00 seconds for hmax
+      0.00 seconds for mas-ssc-dfp-10s
+      0.00 seconds for mas-ssc-dfp-300s
+    600.00 seconds for mas-ssc-dfp-60s
+      0.00 seconds for mas-ssc-sbmiasm-10s
+    240.00 seconds for mas-ssc-sbmiasm-300s
+      0.00 seconds for mas-ssc-sbmiasm-60s
+
+portfolio for 1080.00 seconds solves 219 problems with score 219.00:
+      0.00 seconds for blind
+    120.00 seconds for hmax
+      0.00 seconds for mas-ssc-dfp-10s
+      0.00 seconds for mas-ssc-dfp-300s
+    600.00 seconds for mas-ssc-dfp-60s
+      0.00 seconds for mas-ssc-sbmiasm-10s
+    360.00 seconds for mas-ssc-sbmiasm-300s
+      0.00 seconds for mas-ssc-sbmiasm-60s
+
+portfolio for 1200.00 seconds solves 220 problems with score 220.00:
+      0.00 seconds for blind
+    240.00 seconds for hmax
+      0.00 seconds for mas-ssc-dfp-10s
+      0.00 seconds for mas-ssc-dfp-300s
+    600.00 seconds for mas-ssc-dfp-60s
+      0.00 seconds for mas-ssc-sbmiasm-10s
+    360.00 seconds for mas-ssc-sbmiasm-300s
+      0.00 seconds for mas-ssc-sbmiasm-60s
+
+portfolio for 1320.00 seconds solves 221 problems with score 221.00:
+      0.00 seconds for blind
+    240.00 seconds for hmax
+      0.00 seconds for mas-ssc-dfp-10s
+      0.00 seconds for mas-ssc-dfp-300s
+    720.00 seconds for mas-ssc-dfp-60s
+      0.00 seconds for mas-ssc-sbmiasm-10s
+    360.00 seconds for mas-ssc-sbmiasm-300s
+      0.00 seconds for mas-ssc-sbmiasm-60s
+
+portfolio for 1440.00 seconds solves 223 problems with score 223.00:
+      0.00 seconds for blind
+    240.00 seconds for hmax
+      0.00 seconds for mas-ssc-dfp-10s
+      0.00 seconds for mas-ssc-dfp-300s
+    840.00 seconds for mas-ssc-dfp-60s
+      0.00 seconds for mas-ssc-sbmiasm-10s
+    360.00 seconds for mas-ssc-sbmiasm-300s
+      0.00 seconds for mas-ssc-sbmiasm-60s
+
+portfolio for 1560.00 seconds solves 225 problems with score 225.00:
+      0.00 seconds for blind
+    240.00 seconds for hmax
+      0.00 seconds for mas-ssc-dfp-10s
+      0.00 seconds for mas-ssc-dfp-300s
+    960.00 seconds for mas-ssc-dfp-60s
+      0.00 seconds for mas-ssc-sbmiasm-10s
+    360.00 seconds for mas-ssc-sbmiasm-300s
+      0.00 seconds for mas-ssc-sbmiasm-60s
+
+portfolio for 1680.00 seconds solves 226 problems with score 226.00:
+      0.00 seconds for blind
+    240.00 seconds for hmax
+      0.00 seconds for mas-ssc-dfp-10s
+      0.00 seconds for mas-ssc-dfp-300s
+   1080.00 seconds for mas-ssc-dfp-60s
+      0.00 seconds for mas-ssc-sbmiasm-10s
+    360.00 seconds for mas-ssc-sbmiasm-300s
+      0.00 seconds for mas-ssc-sbmiasm-60s
+
+portfolio for 1800.00 seconds solves 229 problems with score 229.00:
+      0.00 seconds for blind
+    240.00 seconds for hmax
+      0.00 seconds for mas-ssc-dfp-10s
+      0.00 seconds for mas-ssc-dfp-300s
+   1200.00 seconds for mas-ssc-dfp-60s
+      0.00 seconds for mas-ssc-sbmiasm-10s
+    360.00 seconds for mas-ssc-sbmiasm-300s
+      0.00 seconds for mas-ssc-sbmiasm-60s
+
+Time for computing portfolio: 0.3184101319999999s
+
+Reducing portfolio...
+portfolio for 1712.00 seconds solves 229 problems with score 229.00:
+      0.00 seconds for blind
+    229.00 seconds for hmax
+      0.00 seconds for mas-ssc-dfp-10s
+      0.00 seconds for mas-ssc-dfp-300s
+   1137.00 seconds for mas-ssc-dfp-60s
+      0.00 seconds for mas-ssc-sbmiasm-10s
+    346.00 seconds for mas-ssc-sbmiasm-300s
+      0.00 seconds for mas-ssc-sbmiasm-60s
+
+Sort by decreasing coverage
+"""
+Coverage: 229
+Granularity: 120s
+Runtime: 1712s
+Score: 229.0
+"""
+
+TRACK = "opt"
+CONFIGS = [
+    # mas-ssc-dfp-60s
+    (1137, ['--search', 'astar(merge_and_shrink(shrink_strategy=shrink_bisimulation(greedy=false), merge_strategy=merge_sccs(order_of_sccs=topological, merge_selector=score_based_filtering(scoring_functions=[goal_relevance(), dfp(), total_order(atomic_ts_order=reverse_level,product_ts_order=new_to_old,atomic_before_product=false)])), label_reduction=exact(before_shrinking=true, before_merging=false), max_states=50k, threshold_before_merge=1, main_loop_max_time=60))']),
+    # mas-ssc-sbmiasm-300s
+    (346, ['--search', 'astar(merge_and_shrink(shrink_strategy=shrink_bisimulation(greedy=false), merge_strategy=merge_sccs(order_of_sccs=topological, merge_selector=score_based_filtering(scoring_functions=[sf_miasm(shrink_strategy=shrink_bisimulation(greedy=false),max_states=50000,threshold_before_merge=1),total_order(atomic_ts_order=reverse_level,product_ts_order=new_to_old,atomic_before_product=false)])), label_reduction=exact(before_shrinking=true, before_merging=false), max_states=50k, threshold_before_merge=1, main_loop_max_time=300))']),
+    # hmax
+    (229, ['--search', 'astar(hmax())']),
+]
+
+Unsolved problems:
+   caldera-adl:0-p09.pddl              {mas-ssc-dfp-300s: 1394.16}
+   caldera-split-adl:0-p10.pddl        {mas-ssc-sbmiasm-300s: 770.80}
+   citycar-adl:0-p3-3-2-2-2.pddl       {hmax: 1156.87}
+   citycar-adl:0-p3-3-3-3-2.pddl       {hmax: 556.03}
+   citycar-adl:2-p004.pddl             {hmax: 1244.96}
+   citycar-adl:2-p034.pddl             {hmax: 655.07}
+   citycar-adl:2-p147.pddl             {hmax: 1120.13}
+   citycar-adl:2-p148.pddl             {hmax: 1250.66}
+   citycar-adl:2-p151.pddl             {hmax: 1751.73}
+   citycar-adl:2-p164.pddl             {hmax: 454.57}
+   citycar-adl:2-p193.pddl             {hmax: 379.68}
+   citycar-adl:2-p194.pddl             {hmax: 932.03}
+   flashfill-adl:0-p16.pddl            {hmax: 601.09}
+   flashfill-adl:0-p17.pddl            {hmax: 1191.64}
+   schedule-adl:0-probschedule-20-0.pddl {mas-ssc-dfp-300s: 138.28}
+   t0-grid-dispose-adl:0-family-grid-new_dispose-4-1.pddl {hmax: 540.55}
+(16 problems)
+
+Marginal contributions:
+     3 problems / 3.00 score from hmax
+    43 problems / 43.00 score from mas-ssc-dfp-60s
+    11 problems / 11.00 score from mas-ssc-sbmiasm-300s
+
+Final score: 229.0    Configs: 3    Min time: 229    Max time: 1137
