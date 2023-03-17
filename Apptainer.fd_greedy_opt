@@ -18,6 +18,8 @@ Stage: build
     cd /planner
     pypy3 build.py
 
+    strip --strip-all /planner/builds/release/bin/downward
+
 # Stage 2: Run the planner
 Bootstrap: docker
 From: ubuntu:22.04
