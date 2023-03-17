@@ -42,6 +42,7 @@ Stage: run
     pypy3 /planner/fast-downward.py \
         --plan-file "$PLANFILE" \
         --alias "seq-agl-greedy-2023" \
+        --portfolio-single-plan \
         --overall-time-limit 5m \
         "$DOMAINFILE" \
         "$PROBLEMFILE"
