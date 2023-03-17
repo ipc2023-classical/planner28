@@ -9147,7 +9147,7 @@ portfolio for 1800.00 seconds solves 2210 problems with score 2083.03:
       0.00 seconds for lazy_pareto-hff-hlm
       0.00 seconds for lazy_pareto-hff-hlm_pref_ops
 
-Time for computing portfolio: 5.425170044s
+Time for computing portfolio: 5.7191320139999995s
 
 Reducing portfolio...
 portfolio for 1716.00 seconds solves 2210 problems with score 2083.03:
