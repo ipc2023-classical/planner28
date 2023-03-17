@@ -16,6 +16,6 @@ SATISFICING_DATA=../experiments/ipc2023/data/03-sat-configs-eval/properties-hard
 ./greedy.py ${SATISFICING_DATA} --track sat | tee greedy-sat.txt
 
 # AGILE
-## ./batch-stonesoup.sh ${SATISFICING_DATA} agl 1800 | tee batch-stonesoup-agl.txt  # use sat portfolio
+## ./batch-stonesoup.sh ${SATISFICING_DATA} agl 30 | tee batch-stonesoup-agl.txt  # use sat portfolio
 ## ./stonesoup.py --track agl ${SATISFICING_DATA} 30 | tee stonesoup-agl.txt  # use sat portfolio
-./greedy.py ${SATISFICING_DATA} --track agl | tee greedy-agl.txt
+./greedy.py ${SATISFICING_DATA} --track agl --portfolio-time 300 | tee greedy-agl.txt
