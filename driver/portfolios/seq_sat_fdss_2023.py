@@ -17,7 +17,7 @@ CONFIGS = [
     # fdss-2018-03
     (57, ['--search', 'let(hlm, lmcount(lm_reasonable_orders_hps(lm_rhw()),transform=adapt_costs(one)),let(hff, ff(transform=adapt_costs(one)),lazy(alt([single(hff),single(hff,pref_only=true),single(hlm),single(hlm,pref_only=true)],boost=1000),preferred=[hff,hlm],cost_type=one,reopen_closed=false,randomize_successors=false,preferred_successors_first=true,bound=BOUND, verbosity=silent)))']),
     # lazy_hff_hlm-epsilon-greedy_pref_ops-no-reasonable-orders
-    (60, ['--search', 'let(hlm, lmcount(lm_rhw(), pref=true, transform=adapt_costs(one)),let(hff, ff(transform=adapt_costs(one)),lazy(alt([single(hff),single(hff,pref_only=true),epsilon_greedy(hlm),single(hlm,pref_only=true)],boost=1000),preferred=[hff,hlm],cost_type=one,reopen_closed=false,randomize_successors=true, verbosity=silent)))']),
+    (60, ['--search', 'let(hlm, lmcount(lm_rhw(), pref=true, transform=adapt_costs(one)),let(hff, ff(transform=adapt_costs(one)),lazy(alt([single(hff),single(hff,pref_only=true),epsilon_greedy(hlm),single(hlm,pref_only=true)],boost=1000),preferred=[hff,hlm],cost_type=one,reopen_closed=false,randomize_successors=true, bound=BOUND, verbosity=silent)))']),
     # fdss-2014-01
     (22, ['--search', 'let(hadd, add(transform=adapt_costs(one)),let(hlm, lmcount(lm_reasonable_orders_hps(lm_rhw()),transform=adapt_costs(plusone)),lazy_greedy([hadd,hlm],preferred=[hadd,hlm],cost_type=one,bound=BOUND, verbosity=silent)))']),
     # fdss-2018-04

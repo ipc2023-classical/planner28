@@ -42,7 +42,7 @@ Stage: run
     pypy3 /planner/fast-downward.py \
         --plan-file "$PLANFILE" \
         --alias "seq-sat-fdss-2023" \  # Use the satisficing portfolio for the agile track.
-        --overall-time-limit 30m \
+        --overall-time-limit 5m \
         "$DOMAINFILE" \
         "$PROBLEMFILE"
 
