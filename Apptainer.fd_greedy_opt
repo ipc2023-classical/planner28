@@ -5,14 +5,38 @@ Stage: build
 
 %files
     . /planner
+    $IPC_THIRD_PARTY/cplex_studio2211.linux_x86_64.bin cplex.bin
 
 %post
     ## Install all necessary dependencies.
     apt-get update
-    apt-get -y install --no-install-recommends cmake g++ make pypy3
+    apt-get -y install --no-install-recommends cmake g++ make pypy3 zlib1g-dev
 
     ## Clear build directory.
     rm -rf /planner/builds
+
+    ## Build CPLEX.
+    ./cplex.bin -DLICENSE_ACCEPTED=TRUE -i silent
+    export DOWNWARD_CPLEX_ROOT=/opt/ibm/ILOG/CPLEX_Studio2211/cplex/
+
+    ## Build OSI.
+    cd /planner/third-party/
+    tar xvzf Osi-0.107.9.tgz
+    cd Osi-0.107.9
+    export DOWNWARD_COIN_ROOT=/opt/coin/Osi-0.107.9
+    ./configure CC="gcc" CFLAGS="-pthread -Wno-long-long" CXX="g++" \
+        CXXFLAGS="-pthread -Wno-long-long" \
+        LDFLAGS="-L$DOWNWARD_CPLEX_ROOT/lib/x86-64_linux/static_pic" \
+        --without-lapack --enable-static=no \
+        --prefix="$DOWNWARD_COIN_ROOT" \
+        --disable-bzlib \
+        --with-cplex-incdir=$DOWNWARD_CPLEX_ROOT/include/ilcplex \
+        --with-cplex-lib="-lcplex -lm -ldl"
+    make
+    make install
+    cd ..
+    rm -rf Osi-0.107.9
+    cd ../..
 
     ## Build planner.
     cd /planner
@@ -29,6 +53,8 @@ Stage: run
     /planner/driver
     /planner/fast-downward.py
     /planner/builds/release/bin
+    /opt/ibm/ILOG/CPLEX_Studio2211/cplex/
+    /opt/coin/
 
 %post
     apt-get update
@@ -52,7 +78,7 @@ Stage: run
 %labels
 Name        Fast Downward Greedy Portfolio 2023 Optimal
 Description Portfolio of configurations from the main Fast Downward branch, scheduled with the offline greedy approximation algorithm by Streeter and Smith (UAI 2008).
-Authors     Clemens Büchner <clemens.buechner@unibas.ch>, Remo Christen <remo.christen@unibas.ch>, Augusto Blaas Corrêa <augusto.blaascorrea@unibas.ch>, Salomé Eriksson <salome.eriksson@unibas.ch>, Patrick Ferber <patrick.ferber@unibas.ch>, Jendrik Seipp <jendrik.seipp@liu.se>, Silvan Sievers <silvan.sievers@unibas.ch
+Authors     Clemens Büchner <clemens.buechner@unibas.ch>, Remo Christen <remo.christen@unibas.ch>, Augusto Blaas Corrêa <augusto.blaascorrea@unibas.ch>, Salomé Eriksson <salome.eriksson@unibas.ch>, Patrick Ferber <patrick.ferber@unibas.ch>, Jendrik Seipp <jendrik.seipp@liu.se>, Silvan Sievers <silvan.sievers@unibas.ch>
 License     GPL 3
 Tracks      optimal
 SupportsDerivedPredicates                       no

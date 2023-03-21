@@ -52,7 +52,7 @@ Stage: run
 %labels
 Name        Fast Downward Greedy Portfolio 2023 Satisficing
 Description Portfolio of configurations from the main Fast Downward branch, scheduled with the offline greedy approximation algorithm by Streeter and Smith (UAI 2008).
-Authors     Clemens Büchner <clemens.buechner@unibas.ch>, Remo Christen <remo.christen@unibas.ch>, Augusto Blaas Corrêa <augusto.blaascorrea@unibas.ch>, Salomé Eriksson <salome.eriksson@unibas.ch>, Patrick Ferber <patrick.ferber@unibas.ch>, Jendrik Seipp <jendrik.seipp@liu.se>, Silvan Sievers <silvan.sievers@unibas.ch
+Authors     Clemens Büchner <clemens.buechner@unibas.ch>, Remo Christen <remo.christen@unibas.ch>, Augusto Blaas Corrêa <augusto.blaascorrea@unibas.ch>, Salomé Eriksson <salome.eriksson@unibas.ch>, Patrick Ferber <patrick.ferber@unibas.ch>, Jendrik Seipp <jendrik.seipp@liu.se>, Silvan Sievers <silvan.sievers@unibas.ch>
 License     GPL 3
 Tracks      satisficing
 SupportsDerivedPredicates                       yes
