@@ -107,4 +107,7 @@ General Public License for more details.
 
 You should have received a copy of the GNU General Public License
 along with this program. If not, see <https://www.gnu.org/licenses/>.
+
+The third party software OSI shipped within this repository is
+licensed under the Eclipse Public License version 2.0 (EPL 2.0).
 ```
