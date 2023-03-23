@@ -10,6 +10,13 @@ For further information:
 - Fast Downward mailing list: <https://groups.google.com/forum/#!forum/fast-downward>
 - Fast Downward main repository: <https://github.com/aibasel/downward>
 
+## IPC 2023 Apptainer Recipes
+The optimal configurations of our planner require LP support. To build
+the Apptainer recipes, you need an installer for CPLEX at a location
+available under $IPC_THIRD_PARTY. We use version 22.1.1 for the
+competition, but in theory any version of CPLEX is fine. For the
+Apptainer recipe to work out of the box, the installer needst to be
+named as follows: cplex_studio2211.linux_x86_64.bin
 
 ## Tested software versions
 
