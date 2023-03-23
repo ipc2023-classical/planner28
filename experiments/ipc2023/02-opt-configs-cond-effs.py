@@ -39,10 +39,11 @@ with open("domain_properties.csv") as f:
             domains_with_cond_effs.add(domain)
 print("Axioms:", sorted(domains_with_axioms))
 print("Conditional effects:", sorted(domains_with_cond_effs))
+print("Conditional effects and no axioms:", sorted(domains_with_cond_effs - domains_with_axioms))
 print("Both:", sorted(domains_with_axioms & domains_with_cond_effs))
 
 def ignore_inadmissible_runs(run):
-    # Only blind() supports axioms, so we ignore all tasks with axioms here.
+    # Only blind() supports axioms admissibly, so we ignore all tasks with axioms here.
     return run["algorithm"] not in {"h2", "hplus", "hplus-relaxed"} and run["domain"] not in domains_with_axioms
 
 project.fetch_algorithms(exp, "2023-02-15-B-opt-configs-cond-effs", filters=[project.strip_properties, ignore_inadmissible_runs])

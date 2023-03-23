@@ -68,6 +68,7 @@ ATTRIBUTES = [
     "search_start_memory",
     "score_total_time",
     "total_time",
+    "cost",
     "coverage",
     "expansions",
     "expansions_until_last_jump",
