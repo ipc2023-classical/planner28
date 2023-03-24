@@ -48,7 +48,8 @@ Stage: run
         --portfolio-single-plan \
         --overall-time-limit 5m \
         "$DOMAINFILE" \
-        "$PROBLEMFILE"
+        "$PROBLEMFILE" \
+        --translate-options --invariant-generation-max-candidates=0
 
 # Define meta data
 %labels
