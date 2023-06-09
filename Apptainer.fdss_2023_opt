@@ -67,10 +67,12 @@ Stage: run
     PROBLEMFILE="$2"
     PLANFILE="$3"
 
+    # Use low memory limit since competition limits virtual memory and Apptainer reserves more than 1 GB.
     pypy3 /planner/fast-downward.py \
         --plan-file "$PLANFILE" \
         --alias "seq-opt-fdss-2023" \
         --overall-time-limit 30m \
+        --overall-memory-limit 6G \
         "$DOMAINFILE" \
         "$PROBLEMFILE"
 
