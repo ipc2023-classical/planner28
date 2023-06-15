@@ -48,7 +48,7 @@ Stage: run
         --alias "seq-sat-fdss-2023" \
         --portfolio-single-plan \
         --overall-time-limit 5m \
-        --overall-memory-limit 6G \
+        --search-memory-limit 6G \
         "$DOMAINFILE" \
         "$PROBLEMFILE" \
         --translate-options --invariant-generation-max-candidates=0
