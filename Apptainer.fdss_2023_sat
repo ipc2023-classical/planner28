@@ -46,7 +46,7 @@ Stage: run
         --plan-file "$PLANFILE" \
         --alias "seq-sat-fdss-2023" \
         --overall-time-limit 30m \
-        --overall-memory-limit 6G \
+        --search-memory-limit 6G \
         "$DOMAINFILE" \
         "$PROBLEMFILE"
 
